@@ -5,6 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Welcome } from "./components/pages/welcome/Welcome";
+import Explorer from './components/pages/explorer/Explorer';
 import { COLORS } from './constants';
 
 function HomeScreen() {
@@ -15,9 +16,7 @@ function HomeScreen() {
 
 function ExploreScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Explore!</Text>
-    </View>
+    <Explorer/>
   );
 }
 

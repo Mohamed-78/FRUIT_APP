@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Welcome } from "./components/pages/welcome/Welcome";
 import Explorer from './components/pages/explorer/Explorer';
+import Cart from './components/pages/cart/Cart';
 import { COLORS } from './constants';
 
 function HomeScreen() {
@@ -22,9 +23,7 @@ function ExploreScreen() {
 
 function CartScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Cart!</Text>
-    </View>
+    <Cart/>
   );
 }
 

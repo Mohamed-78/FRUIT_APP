@@ -28,29 +28,44 @@ const DATA = [
       borderColor: "#f7afa5"
     },
     {
-        id: '3ac68afc-c605-48d3-k4f8',
-        title: 'Bakery & Snacks',
-        image: images.farine,
-        backgroundColor: "#f5eaf8",
-        borderColor: "#e8b4f7"
+      id: '3ac68afc-c605-48d3-k4f8',
+      title: 'Bakery & Snacks',
+      image: images.farine,
+      backgroundColor: "#f5eaf8",
+      borderColor: "#e8b4f7"
     },
     {
-        id: '3ac68afc-c605-48d3-f4f8',
-        title: 'Dairy & Eggs',
-        image: images.lait,
-        backgroundColor: "#fff8e6",
-        borderColor: "#f7de9e"
+      id: '3ac68afc-c605-48d3-f4f8',
+      title: 'Dairy & Eggs',
+      image: images.lait,
+      backgroundColor: "#fff8e6",
+      borderColor: "#f7de9e"
     },
     {
-        id: '3ac68afc-c605-48d3-f4f8',
-        title: 'Beverages',
-        image: images.alcool,
-        backgroundColor: "#eef7fc",
-        borderColor: "#b2ddf4"
+      id: '3ac68afc-c605-48d3-f4f8',
+      title: 'Beverages',
+      image: images.alcool,
+      backgroundColor: "#eef7fc",
+      borderColor: "#b2ddf4",
+      detail:[
+        {
+          title: 'Diet Coke',
+          sub_title: '335ml, Price',
+          image: images.coke,
+          price: '$1.99'
+        },
+        {
+          title: 'Sprite Can',
+          sub_title: '325ml, Price',
+          image: images.pepsi,
+          price: '$1.50'
+        }
+      ]
     },
   ];
 
 export function Explorer() {
+
     return (
       <ScrollView style={styles.backgroundPage}>
         <View style={styles.appMarginTop}>
@@ -67,7 +82,7 @@ export function Explorer() {
               />
             </View>
           </View>
-          {/* Divide categories into pairs for each row */}
+          {/* Diviser les catégories en paires pour chaque ligne */}
           <View style={styles.categoriesContainer}>
             {DATA.map((item, index) => {
               if (index % 2 === 0) {
@@ -87,5 +102,4 @@ export function Explorer() {
     );
 }
   
-
 export default Explorer;

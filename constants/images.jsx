@@ -12,8 +12,20 @@ import farine from "../assets/images/categories/farine.png";
 import huile from "../assets/images/categories/huile.png";
 import fruit from "../assets/images/categories/fruit.png";
 import lait from "../assets/images/categories/lait.png";
+import juice from "../assets/images/produits/juice.png";
+import coke from "../assets/images/produits/coke.jpg";
+import pepsi from "../assets/images/produits/pepsi.png";
+import beer from "../assets/images/produits/beer.png";
+import wisky from "../assets/images/produits/wiskYo.png";
+import vin from "../assets/images/produits/vin.png";
 
 export default{
+    juice,
+    coke,
+    pepsi,
+    beer,
+    wisky,
+    vin,
     banner,
     banane,
     pomme,

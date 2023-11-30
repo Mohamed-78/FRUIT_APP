@@ -7,6 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Welcome } from "./components/pages/welcome/Welcome";
 import Explorer from './components/pages/explorer/Explorer';
 import Cart from './components/pages/cart/Cart';
+import Favori from './components/pages/favoris/Favori';
+import Profil from './components/pages/profil/Profil';
 import { COLORS } from './constants';
 
 function HomeScreen() {
@@ -29,17 +31,13 @@ function CartScreen() {
 
 function FavoriteScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Favoris!</Text>
-    </View>
+    <Favori/>
   );
 }
 
 function AccountScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Compte!</Text>
-    </View>
+    <Profil/>
   );
 }
 

@@ -60,33 +60,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         padding: 16,
     },
-    viewBottomQte:{
-        marginTop: 10,
-        flexDirection: "row", 
-        alignItems: "center"
-    },
-    qteBtn: {
-        width: "40%",
-        height: "40%",
-        tintColor: COLORS.white,
-    },
-    touchQteBtn: {
-        width: 30,
-        height: 30,
-        backgroundColor: COLORS.primary,
-        borderRadius: 15,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    alignContent: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-    },
-    priceContainer: {
-        marginTop: 50,
-        marginLeft: 'auto',
-    },
     priceFontWeight:{
         fontSize: 16,
         fontWeight: "bold"

@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, Image, Text, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import { COLORS, SIZES } from "../../../constants/theme";
+import { FONT } from '../../../constants/theme';
 import { images } from '../../../constants';
 import ExclusiveOffer from '../../card/offer/ExclusiveOffer';
 import BestSelling from '../../card/selling/BestSelling';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useFonts } from "expo-font";
 
 const DATA = [
   {
@@ -50,6 +52,19 @@ const selling = [
 ];
 
 export function Welcome() {
+
+  let [fontsLoaded] = useFonts({
+    regular: require('../../../assets/font/Montserrat-Regular.ttf'),
+    light: require('../../../assets/font/Montserrat-Light.ttf'),
+    bold: require('../../../assets/font/Montserrat-Bold.ttf'),
+  });
+
+  if(!fontsLoaded){
+    return (
+      <Text>Loading...</Text>
+    )
+  }
+
   return (
     <ScrollView style={styles.backgroundPage}>
       <View style={styles.appMarginTop}>
@@ -148,7 +163,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   textLeft:{
-    fontWeight: "bold",
+    fontFamily: "bold",
     fontSize: 15
   },
   textRight:{

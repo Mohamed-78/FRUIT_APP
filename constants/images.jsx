@@ -18,8 +18,10 @@ import pepsi from "../assets/images/produits/pepsi.png";
 import beer from "../assets/images/produits/beer.png";
 import wisky from "../assets/images/produits/wiskYo.png";
 import vin from "../assets/images/produits/vin.png";
+import profil from "../assets/images/profil.png";
 
 export default{
+    profil,
     juice,
     coke,
     pepsi,

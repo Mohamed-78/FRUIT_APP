@@ -4,7 +4,12 @@ const COLORS = {
     titleColor: "#000",
     white: "#F3F4F8",
     lightWhite: "#FAFAFC",
-    
+};
+
+const FONT = {
+  regular: "LatoRegular",
+  thin: "LatoThin",
+  bold: "LatoBold",
 };
 
 const SIZES = {
@@ -39,4 +44,4 @@ const SHADOWS = {
     },
 };
   
-  export { COLORS, SIZES, SHADOWS };
+  export { COLORS, SIZES, SHADOWS, FONT };

@@ -14,7 +14,7 @@ export function ExclusiveOffer({ item }){
 
   return (
     <TouchableOpacity style={styles.container(item)}>
-      <TouchableOpacity style={styles.imageContainer(item)}>
+      <TouchableOpacity style={styles.imageContainer(item)} onPress={handlePress}>
         <Image source={item.image} resizeMode="contain" style={styles.productImage}/> 
       </TouchableOpacity>
       <View style={styles.infoContainer}>
@@ -24,7 +24,7 @@ export function ExclusiveOffer({ item }){
         <Text style={styles.location}>{item.sub_title}</Text>
         <View style={styles.priceElement}>
           <Text style={styles.priceTitle}>$4.99</Text>
-          <TouchableOpacity style={styles.addBtn} onPress={handlePress}>
+          <TouchableOpacity style={styles.addBtn}>
             <Image source={icons.add} resizeMode="contain" style={styles.addBtnImage} />
           </TouchableOpacity>
         </View>

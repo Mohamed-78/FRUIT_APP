@@ -51,7 +51,7 @@ const selling = [
   },
 ];
 
-export function Welcome() {
+export function Welcome({navigation }) {
 
   let [fontsLoaded] = useFonts({
     regular: require('../../../assets/font/Montserrat-Regular.ttf'),
@@ -91,7 +91,7 @@ export function Welcome() {
           <FlatList 
             data={DATA}
             renderItem={({ item }) =>(
-              <ExclusiveOffer item={item}/>
+              <ExclusiveOffer item={item} navigation={navigation}/>
             )}
             keyExtractor={item => item.id}
             contentContainerStyle={{columnGap: SIZES.small}}

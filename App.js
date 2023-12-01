@@ -1,87 +1,68 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { Welcome } from "./components/pages/welcome/Welcome";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { FontAwesome } from '@expo/vector-icons';
+import { COLORS } from './constants';
+import Welcome from './components/pages/welcome/Welcome';
 import Explorer from './components/pages/explorer/Explorer';
 import Cart from './components/pages/cart/Cart';
 import Favori from './components/pages/favoris/Favori';
 import Profil from './components/pages/profil/Profil';
-import { COLORS } from './constants';
-
-function HomeScreen() {
-  return (
-    <Welcome/>
-  );
-}
-
-function ExploreScreen() {
-  return (
-    <Explorer/>
-  );
-}
-
-function CartScreen() {
-  return (
-    <Cart/>
-  );
-}
-
-function FavoriteScreen() {
-  return (
-    <Favori/>
-  );
-}
-
-function AccountScreen() {
-  return (
-    <Profil/>
-  );
-}
+import Detail from './components/pages/details-produit/Detail';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+function BottomTabNavigator() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarStyle: {
+          borderTopLeftRadius: 18,
+          borderTopRightRadius: 18,
+          shadowOpacity: 0.35,
+          shadowRadius: 15.0,
+          elevation: 26,
+        },
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'Shop') {
+            iconName = focused ? 'shopping-bag' : 'shopping-bag';
+          } else if (route.name === 'Explore') {
+            iconName = focused ? 'wpexplorer' : 'wpexplorer';
+          } else if (route.name === "Cart") {
+            iconName = focused ? 'shopping-cart' : 'shopping-cart';
+          } else if (route.name === "Favourite") {
+            iconName = focused ? 'heart-o' : 'heart-o';
+          } else if (route.name === "Account") {
+            iconName = focused ? 'user-o' : 'user-o';
+          }
+
+          return <FontAwesome name={iconName} size={20} color={color} />;
+        },
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarInactiveTintColor: "#000",
+      })}
+    >
+      <Tab.Screen name="Shop" component={Welcome} />
+      <Tab.Screen name="Explore" component={Explorer} />
+      <Tab.Screen name="Cart" component={Cart} />
+      <Tab.Screen name="Favourite" component={Favori} />
+      <Tab.Screen name="Account" component={Profil} />
+    </Tab.Navigator>
+  );
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          headerShown: false,
-          tabBarStyle: {
-            borderTopLeftRadius: 18,
-            borderTopRightRadius: 18,
-            shadowOpacity: 0.35,
-            shadowRadius: 15.0,
-            elevation: 26,
-          },
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Shop') {
-              iconName = focused ? 'shopping-bag' : 'shopping-bag';
-            } else if (route.name === 'Explore') {
-              iconName = focused ? 'wpexplorer' : 'wpexplorer';
-            }else if(route.name === "Cart"){
-              iconName = focused ? 'shopping-cart' : 'shopping-cart';
-            }else if(route.name === "Favourite"){
-              iconName = focused ? 'heart-o' : 'heart-o';
-            }else if(route.name === "Account"){
-              iconName = focused ? 'user-o' : 'user-o';
-            }
-            
-            return <FontAwesome name={iconName} size={20} color={color} />;
-          },
-          tabBarActiveTintColor: COLORS.primary,
-          tabBarInactiveTintColor: "#000",
-        })}>
-        <Tab.Screen name="Shop" component={HomeScreen} />
-        <Tab.Screen name="Explore" component={ExploreScreen} />
-        <Tab.Screen name="Cart" component={CartScreen} />
-        <Tab.Screen name="Favourite" component={FavoriteScreen} />
-        <Tab.Screen name="Account" component={AccountScreen} />
-      </Tab.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
+        <Stack.Screen name="Detail" component={Detail} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

@@ -8,6 +8,7 @@ import BestSelling from '../../card/selling/BestSelling';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useFonts } from "expo-font";
+import useFetch from '../../../api/useFetch';
 
 const DATA = [
   {

@@ -2,15 +2,18 @@ import { StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../../../constants/theme";
 
 const styles = StyleSheet.create({
-    appMarginTop:{
-        marginTop: '15%'
-      },
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+    },
     backgroundPage:{
         backgroundColor: "#fff",
     },
     content:{
         backgroundColor: "#f3f3f3",
         padding: 20,
+        paddingTop: "15%",
+        height: '45%',
         width: "100%",
         borderBottomLeftRadius: 30,
         borderBottomRightRadius: 30
@@ -23,17 +26,17 @@ const styles = StyleSheet.create({
         flexDirection: "row", 
         justifyContent: "space-between"
     },
-    imgProduit:{
+    imgProduct:{
         marginTop: -50,
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
     },
-    imgProduitWidth:{
+    imgProductWidth:{
         width: 300,
         height: 300
     },
-    titreProduitPosition:{
+    titleProductPosition:{
         padding: 20,
         flexDirection: "row",
         justifyContent: "space-between"
@@ -58,7 +61,8 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         backgroundColor: COLORS.primary,
-        borderRadius: 15,
+        borderTopLeftRadius: 10,
+        borderBottomEndRadius: 10,
         justifyContent: "center",
         alignItems: "center",
     },
@@ -107,7 +111,7 @@ const styles = StyleSheet.create({
     },
     CheckoutBtn:{
         padding: 15.5,
-        width: 360,
+        width: "90%",
         height: 55,
         borderRadius: 10,
         backgroundColor: COLORS.primary

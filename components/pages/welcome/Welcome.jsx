@@ -1,74 +1,80 @@
-import React from 'react';
-import { View, TextInput, StyleSheet, Image, Text, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import React from "react";
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Image,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { COLORS, SIZES } from "../../../constants/theme";
-import { FONT } from '../../../constants/theme';
-import { images } from '../../../constants';
-import ExclusiveOffer from '../../card/offer/ExclusiveOffer';
-import BestSelling from '../../card/selling/BestSelling';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { FONT } from "../../../constants/theme";
+import { images } from "../../../constants";
+import ExclusiveOffer from "../../card/offer/ExclusiveOffer";
+import BestSelling from "../../card/selling/BestSelling";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useFonts } from "expo-font";
-import useFetch from '../../../api/useFetch';
+import useFetch from "../../../api/useFetch";
 
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Organic Bananas',
-    sub_title: '7pcs, Priceg',
-    image: images.banane
+    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+    title: "Organic Bananas",
+    sub_title: "7pcs, Priceg",
+    image: images.banane,
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Super Pineapple',
-    sub_title: '1kg, Priceg',
-    image: images.ananas
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    title: "Super Pineapple",
+    sub_title: "1kg, Priceg",
+    image: images.ananas,
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f28',
-    title: 'African mangoes',
-    sub_title: '1kg, Priceg',
-    image: images.mangue
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f28",
+    title: "African mangoes",
+    sub_title: "1kg, Priceg",
+    image: images.mangue,
   },
 ];
 
 const selling = [
   {
-    id: 'c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'org watermelon',
-    sub_title: '7pcs, Priceg',
-    image: images.pasteque
+    id: "c1b1-46c2-aed5-3ad53abb28ba",
+    title: "org watermelon",
+    sub_title: "7pcs, Priceg",
+    image: images.pasteque,
   },
   {
-    id: 'c605-48d3-a4f8-fbd91aa97f63',
-    title: 'African Ginger',
-    sub_title: '1kg, Priceg',
-    image: images.gingembre
+    id: "c605-48d3-a4f8-fbd91aa97f63",
+    title: "African Ginger",
+    sub_title: "1kg, Priceg",
+    image: images.gingembre,
   },
   {
-    id: 'c605-48d3-a4f8-fbd91aa97f28',
-    title: 'African mangoes',
-    sub_title: '1kg, Priceg',
-    image: images.mangue
+    id: "c605-48d3-a4f8-fbd91aa97f28",
+    title: "African mangoes",
+    sub_title: "1kg, Priceg",
+    image: images.mangue,
   },
 ];
 
-export function Welcome({navigation }) {
-
+export function Welcome({ navigation }) {
   let [fontsLoaded] = useFonts({
-    regular: require('../../../assets/font/Montserrat-Regular.ttf'),
-    light: require('../../../assets/font/Montserrat-Light.ttf'),
-    bold: require('../../../assets/font/Montserrat-Bold.ttf'),
+    regular: require("../../../assets/font/Montserrat-Regular.ttf"),
+    light: require("../../../assets/font/Montserrat-Light.ttf"),
+    bold: require("../../../assets/font/Montserrat-Bold.ttf"),
   });
 
-  if(!fontsLoaded){
-    return (
-      <Text>Loading...</Text>
-    )
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
   }
 
   return (
-    <ScrollView style={styles.backgroundPage}>
-      <View style={styles.appMarginTop}>
+    <>
+      <View style={styles.container}>
         <View style={styles.searchContainer}>
           <View style={styles.searchWrapper}>
             <TextInput
@@ -80,58 +86,79 @@ export function Welcome({navigation }) {
           </View>
         </View>
         <View style={styles.bannerContainer}>
-          <Image source={images.banner} resizeMode="cover" style={styles.bannerStyle}/>
-        </View>
-        <View style={styles.productText}>
-          <Text style={styles.textLeft}>Exclusive Offer</Text>
-          <TouchableOpacity>
-            <Text style={styles.textRight}>See all</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.cardsContainer}>
-          <FlatList 
-            data={DATA}
-            renderItem={({ item }) =>(
-              <ExclusiveOffer item={item} navigation={navigation}/>
-            )}
-            keyExtractor={item => item.id}
-            contentContainerStyle={{columnGap: SIZES.small}}
-            horizontal
+          <Image
+            source={images.banner}
+            resizeMode="cover"
+            style={styles.bannerStyle}
           />
         </View>
-        <View style={styles.productTextSecond}>
-          <Text style={styles.textLeft}>Best Selling</Text>
-          <TouchableOpacity>
-            <Text style={styles.textRight}>See all</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.cardsContainer}>
-          <FlatList 
-            data={selling}
-            renderItem={({ item }) =>(
-              <BestSelling item={item}/>
-            )}
-            keyExtractor={item => item.id}
-            contentContainerStyle={{columnGap: SIZES.small}}
-            horizontal
-          />
-        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.productText}>
+            <Text style={styles.textLeft}>Exclusive Offer</Text>
+            <TouchableOpacity>
+              <Text style={styles.textRight}>See all</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.cardsContainer}>
+            <FlatList
+              data={DATA}
+              renderItem={({ item }) => (
+                <ExclusiveOffer item={item} navigation={navigation} />
+              )}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={{ columnGap: SIZES.small }}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+          <View style={styles.productTextSecond}>
+            <Text style={styles.textLeft}>Best Selling</Text>
+            <TouchableOpacity>
+              <Text style={styles.textRight}>See all</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.cardsContainer}>
+            <FlatList
+              data={selling}
+              renderItem={({ item }) => <BestSelling item={item} />}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={{ columnGap: SIZES.small }}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+          <View style={styles.productTextSecond}>
+            <Text style={styles.textLeft}>Best Selling</Text>
+            <TouchableOpacity>
+              <Text style={styles.textRight}>See all</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.cardsContainer}>
+            <FlatList
+              data={selling}
+              renderItem={({ item }) => <BestSelling item={item} />}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={{ columnGap: SIZES.small }}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+        </ScrollView>
       </View>
-    </ScrollView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  appMarginTop:{
-    marginTop: '10%'
-  },
-  backgroundPage:{
-    backgroundColor: "#fff"
+  container: {
+    flex: 1,
+    height: "100%",
+    backgroundColor: "#fff",
+    paddingTop: "10%",
   },
   searchContainer: {
     justifyContent: "center",
     alignItems: "center",
-    //flexDirection: "column",
     marginTop: SIZES.large,
     height: 50,
   },
@@ -142,6 +169,7 @@ const styles = StyleSheet.create({
     borderRadius: 9,
     height: "100%",
     width: "90%",
+    backgroundColor: COLORS.white,
   },
   searchInput: {
     width: "100%",
@@ -158,28 +186,28 @@ const styles = StyleSheet.create({
     width: 370,
     height: 110,
   },
-  productText:{
+  productText: {
     padding: 25,
     justifyContent: "space-between",
-    flexDirection: "row"
+    flexDirection: "row",
   },
-  textLeft:{
+  textLeft: {
     fontFamily: "bold",
-    fontSize: 15
+    fontSize: 15,
   },
-  textRight:{
+  textRight: {
     color: COLORS.primary,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   cardsContainer: {
     padding: 25,
-    marginTop: -28
+    marginTop: -28,
   },
-  productTextSecond:{
+  productTextSecond: {
     marginTop: -20,
     padding: 25,
     justifyContent: "space-between",
-    flexDirection: "row"
+    flexDirection: "row",
   },
 });
 

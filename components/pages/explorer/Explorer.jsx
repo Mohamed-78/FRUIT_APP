@@ -67,8 +67,8 @@ const DATA = [
 export function Explorer() {
 
     return (
-      <ScrollView style={styles.backgroundPage}>
-        <View style={styles.appMarginTop}>
+      <>
+       <View style={styles.container}>
           <View style={styles.explorerText}>
             <Text style={styles.textFontSize}>Find Products</Text>
           </View>
@@ -82,23 +82,24 @@ export function Explorer() {
               />
             </View>
           </View>
-          {/* Diviser les catégories en paires pour chaque ligne */}
-          <View style={styles.categoriesContainer}>
-            {DATA.map((item, index) => {
-              if (index % 2 === 0) {
-                const nextItem = DATA[index + 1];
-                return (
-                  <View style={styles.categoryRow} key={index}>
-                    <Category item={item} />
-                    {nextItem && <Category item={nextItem} />}
-                  </View>
-                );
-              }
-              return null;
-            })}
-          </View>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={styles.categoriesContainer}>
+              {DATA.map((item, index) => {
+                if (index % 2 === 0) {
+                  const nextItem = DATA[index + 1];
+                  return (
+                    <View style={styles.categoryRow} key={index}>
+                      <Category item={item} />
+                      {nextItem && <Category item={nextItem} />}
+                    </View>
+                  );
+                }
+                return null;
+              })}
+            </View>
+          </ScrollView>
         </View>
-      </ScrollView>
+      </>
     );
 }
   

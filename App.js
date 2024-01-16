@@ -10,6 +10,7 @@ import Cart from './components/pages/cart/Cart';
 import Favori from './components/pages/favoris/Favori';
 import Profil from './components/pages/profil/Profil';
 import Detail from './components/pages/details-produit/Detail';
+import ExplorerProduct from './components/pages/explorerproduct/ExplorerProduct';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -62,6 +63,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
         <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="ExplorerProduct" component={ExplorerProduct} />
       </Stack.Navigator>
     </NavigationContainer>
   );

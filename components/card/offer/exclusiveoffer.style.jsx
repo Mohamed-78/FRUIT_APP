@@ -67,7 +67,42 @@ const styles = StyleSheet.create({
   priceTitle:{
     fontWeight: "600",
     color: "#000"
-  }
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalContent: {
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  modalText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  modalSubText:{
+    fontSize: 15,
+    color: "gray",
+    marginBottom: 15,
+  },
+  closeModalText: {
+    fontSize: 16,
+    color: "#007BFF",
+  },
+  imgCart:{
+    flexDirection:"row",
+    justifyContent: "center",
+  },
+  checkoutText:{
+    marginTop: 15,
+    fontSize: 22,
+    color: "gray",
+  },
 });
 
 export default styles;

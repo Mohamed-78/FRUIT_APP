@@ -23,7 +23,7 @@ export function Detail() {
       <View style={styles.container}>
         <View style={styles.content}>
           <View style={styles.topIconPosition}>
-            <TouchableOpacity onPress={() => {navigation.goBack();}}>
+            <TouchableOpacity onPress={() => {navigation.goBack()}}>
               <Image
                 source={require("../../../assets/icons/left-chevron.png")}
                 resizeMode="cover"

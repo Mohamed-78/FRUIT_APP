@@ -1,8 +1,15 @@
 import React from "react";
-import { View, Image, ScrollView, Text, TouchableOpacity, TouchableHighlight } from "react-native";
+import {
+  View,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  TouchableHighlight,
+} from "react-native";
 import { images } from "../../../constants";
-import icons from "../../../constants/icons";
 import styles from "./fovori.style";
+import icons from "../../../constants/icons";
 
 // Données factices pour les produits dans le panier
 const DATA = [
@@ -14,18 +21,18 @@ const DATA = [
     price: "$10.90",
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Super Pineapple',
-    sub_title: '1kg, Priceg',
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    title: "Super Pineapple",
+    sub_title: "1kg, Priceg",
     image: images.ananas,
-    price: "$40.99"
+    price: "$40.99",
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f28',
-    title: 'African mangoes',
-    sub_title: '1kg, Priceg',
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f28",
+    title: "African mangoes",
+    sub_title: "1kg, Priceg",
     image: images.mangue,
-    price: "$12.00"
+    price: "$12.00",
   },
   {
     id: "jd98yd",
@@ -45,42 +52,46 @@ const DATA = [
 
 export function Favori() {
   return (
-    <ScrollView style={styles.backgroundPage}>
-      <View style={styles.appMarginTop}>
-        <View style={styles.explorerText}>
-          <Text style={styles.textFontSize}>Favorurite</Text>
-        </View>
+    <View style={styles.container}>
+      <View style={styles.FavText}>
+        <Text style={styles.textFontSize}>Favorurite</Text>
       </View>
       <View style={styles.traitHorizontal} />
-      {DATA.map((item, index) => (
-        <React.Fragment key={item.id}>
-          <View style={styles.ViewFlexDirection}>
-            <View style={styles.cartDirection}>
-              <Image
-                source={item.image}
-                resizeMode="cover"
-                style={styles.imageWidth}
-              />
-              <View style={{ marginLeft: 16, flex: 1 }}>
-                <View style={styles.titleContainer}>
-                  <Text style={styles.textFontSize}>{item.title}</Text>
-                  <Text style={styles.priceFontWeight}>{item.price}</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {DATA.map((item, index) => (
+          <React.Fragment key={item.id}>
+            <View style={styles.ViewFlexDirection}>
+              <View style={styles.cartDirection}>
+                <Image
+                  source={item.image}
+                  resizeMode="cover"
+                  style={styles.imageWidth}
+                />
+                <View style={{ marginLeft: 16, flex: 1 }}>
+                  <View style={styles.titleContainer}>
+                    <Text style={styles.textFontSize}>{item.title}</Text>
+                    <View style={styles.alignPriceElement}>
+                      <Text style={styles.priceFontWeight}>{item.price}</Text>
+                      <TouchableOpacity>
+                        <Image source={icons.bin} style={styles.iconSize} />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                  <Text style={styles.subTitle}>{item.sub_title}</Text>
                 </View>
-                <Text style={styles.subTitle}>{item.sub_title}</Text>
               </View>
             </View>
-          </View>
-          {index < DATA.length - 1 && (
-            <View style={styles.horizontalBar} />
-          )}
-        </React.Fragment>
-      ))}
-        <View style={styles.checkoutBtnPosition}>
-            <TouchableOpacity style={styles.CheckoutBtn}>
-                <Text style={styles.btnText}>Add All To Cart</Text>
-            </TouchableOpacity>
-        </View>
-    </ScrollView>
+            {index < DATA.length - 1 && <View style={styles.horizontalBar} />}
+          </React.Fragment>
+        ))}
+      </ScrollView>
+
+      <View style={styles.checkoutBtnPosition}>
+        <TouchableOpacity style={styles.CheckoutBtn}>
+          <Text style={styles.btnText}>Add All To Cart</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 

@@ -3,8 +3,11 @@ import { COLORS, SIZES } from "../../../constants/theme";
 
 const styles = StyleSheet.create({
     container: {
-      width: "100%"
-    },
+        flex: 1,
+        height: "100%",
+        backgroundColor: "#fff",
+        paddingTop: "10%",
+      },
     appMarginTop:{
         marginTop: '15%'
       },

@@ -15,6 +15,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center"
   },
+  categoriesContainer: {
+    marginTop: "10%",
+  },
+  categoryRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   textFontSize: {
     fontSize: 17,
     fontWeight: "bold",
@@ -24,8 +31,8 @@ const styles = StyleSheet.create({
     height: 25
   },
   containerCardProduct: {
-    marginTop: "10%",
-    width: 145,
+    marginTop: "5%",
+    width: 170,
     padding: SIZES.xLarge,
     borderWidth: 1,
     borderColor: COLORS.secondary,
@@ -36,7 +43,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: 50,
-    height: 50,
+    height: 70,
     justifyContent: "center",
     alignItems: "center",
   },

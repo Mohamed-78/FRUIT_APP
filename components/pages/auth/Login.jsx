@@ -9,8 +9,19 @@ import {
 import { images } from "../../../constants";
 import InputLine from "../../input/inputLine/InputLine";
 import { COLORS } from "../../../constants";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Login() {
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.navigate("Register");
+  };
+
+  const home = () => {
+    navigation.navigate("BottomTab", { screen: "Shop" });
+  };
+
   return (
     <>
       <ImageBackground source={images.header_bg} style={styles.backgroundImage}>
@@ -39,17 +50,17 @@ export default function Login() {
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={home} style={styles.button}>
             <Text style={styles.text}>Sign In</Text>
           </TouchableOpacity>
 
           <View style={styles.registerAccount}>
             <Text style={styles.registerAccountText}>
-              Or you have an account?
+              Or you don't have an account?
             </Text>
           </View>
 
-          <TouchableOpacity style={styles.buttonOutline}>
+          <TouchableOpacity onPress={handlePress} style={styles.buttonOutline}>
             <Text style={styles.textOutline}>Sign Up</Text>
           </TouchableOpacity>
         </View>

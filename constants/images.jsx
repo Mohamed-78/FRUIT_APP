@@ -19,8 +19,14 @@ import beer from "../assets/images/produits/beer.png";
 import wisky from "../assets/images/produits/wiskYo.png";
 import vin from "../assets/images/produits/vin.png";
 import profil from "../assets/images/profil.png";
+import splashscreen from "../assets/images/splashscreen.jpeg";
+import background from "../assets/images/background.jpeg"
+import header_bg from "../assets/images/header_bg.png"
 
 export default{
+    header_bg,
+    background,
+    splashscreen,
     profil,
     juice,
     coke,

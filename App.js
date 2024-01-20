@@ -1,16 +1,19 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { FontAwesome } from '@expo/vector-icons';
-import { COLORS } from './constants';
-import Welcome from './components/pages/welcome/Welcome';
-import Explorer from './components/pages/explorer/Explorer';
-import Cart from './components/pages/cart/Cart';
-import Favori from './components/pages/favoris/Favori';
-import Profil from './components/pages/profil/Profil';
-import Detail from './components/pages/details-produit/Detail';
-import ExplorerProduct from './components/pages/explorerproduct/ExplorerProduct';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { FontAwesome } from "@expo/vector-icons";
+import { COLORS } from "./constants";
+import Welcome from "./components/pages/welcome/Welcome";
+import Explorer from "./components/pages/explorer/Explorer";
+import Cart from "./components/pages/cart/Cart";
+import Favori from "./components/pages/favoris/Favori";
+import Profil from "./components/pages/profil/Profil";
+import Detail from "./components/pages/details-produit/Detail";
+import ExplorerProduct from "./components/pages/explorerproduct/ExplorerProduct";
+import SplashScreen from "./components/pages/splashscreen/SplashScreen";
+import Login from "./components/pages/auth/Login";
+import Register from "./components/pages/auth/Register";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -30,16 +33,16 @@ function BottomTabNavigator() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'Shop') {
-            iconName = focused ? 'shopping-bag' : 'shopping-bag';
-          } else if (route.name === 'Explore') {
-            iconName = focused ? 'wpexplorer' : 'wpexplorer';
+          if (route.name === "Shop") {
+            iconName = focused ? "shopping-bag" : "shopping-bag";
+          } else if (route.name === "Explore") {
+            iconName = focused ? "wpexplorer" : "wpexplorer";
           } else if (route.name === "Cart") {
-            iconName = focused ? 'shopping-cart' : 'shopping-cart';
+            iconName = focused ? "shopping-cart" : "shopping-cart";
           } else if (route.name === "Favourite") {
-            iconName = focused ? 'heart-o' : 'heart-o';
+            iconName = focused ? "heart-o" : "heart-o";
           } else if (route.name === "Account") {
-            iconName = focused ? 'user-o' : 'user-o';
+            iconName = focused ? "user-o" : "user-o";
           }
 
           return <FontAwesome name={iconName} size={20} color={color} />;
@@ -60,10 +63,16 @@ function BottomTabNavigator() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator
+        initialRouteName="SplashScreen"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
         <Stack.Screen name="Detail" component={Detail} />
         <Stack.Screen name="ExplorerProduct" component={ExplorerProduct} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
   );
